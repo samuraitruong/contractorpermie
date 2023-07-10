@@ -59,7 +59,7 @@ const CalculationForm = () => {
           Type in the number you have
         </h3>
         <div className="border border-gray-300 p-2">
-          <div className="">
+          <div>
             <label className="block mb-2">Standard annual salary</label>
             <input
               className="border border-gray-300 p-2 w-full"

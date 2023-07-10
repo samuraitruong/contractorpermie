@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 
 const CalculationForm = () => {
   const [standardSalary, setStandardSalary] = useState(70000);
@@ -24,28 +24,28 @@ const CalculationForm = () => {
     calculateNetDaysWorked();
   }, [daysWorked, weekdaysYear, publicHolidays, annualLeave, sickLeave]);
 
-  const handleStandardSalaryChange = (e) => {
+  const handleStandardSalaryChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newStandardSalary = Number(e.target.value);
     setStandardSalary(newStandardSalary);
     setPackageSalary(newStandardSalary * 1.095);
     setContractRate((newStandardSalary * 1.095) / netDaysWorked);
   };
 
-  const handlePackageSalaryChange = (e) => {
+  const handlePackageSalaryChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newPackageSalary = Number(e.target.value);
     setPackageSalary(newPackageSalary);
     setStandardSalary(newPackageSalary / 1.095);
     setContractRate(newPackageSalary / 1.095 / netDaysWorked);
   };
 
-  const handleNetworkDateChange = (e) => {
+  const handleNetworkDateChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newValue = Number(e.target.value);
     setNetDaysWorked(+newValue);
     const newContractRate = packageSalary / newValue;
     setContractRate(newContractRate);
   };
 
-  const handleContractRateChange = (e) => {
+  const handleContractRateChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newContractRate = Number(e.target.value);
     setContractRate(newContractRate);
     setPackageSalary(newContractRate * netDaysWorked);
@@ -99,7 +99,9 @@ const CalculationForm = () => {
               className="border border-gray-300 p-1 w-full"
               type="number"
               value={daysWorked}
-              onChange={(e) => setDaysWorked(Number(e.target.value))}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setDaysWorked(Number(e.target.value))
+              }
             />
           </div>
           <div className="mb-2">
@@ -108,7 +110,9 @@ const CalculationForm = () => {
               className="border border-gray-300 p-1 w-full"
               type="number"
               value={weekdaysYear}
-              onChange={(e) => setWeekdaysYear(Number(e.target.value))}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setWeekdaysYear(Number(e.target.value))
+              }
             />
           </div>
           <div className="mb-2">
@@ -117,7 +121,9 @@ const CalculationForm = () => {
               className="border border-gray-300 p-1 w-full"
               type="number"
               value={publicHolidays}
-              onChange={(e) => setPublicHolidays(Number(e.target.value))}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setPublicHolidays(Number(e.target.value))
+              }
             />
           </div>
           <div className="mb-2">
@@ -126,7 +132,9 @@ const CalculationForm = () => {
               className="border border-gray-300 p-1 w-full"
               type="number"
               value={annualLeave}
-              onChange={(e) => setAnnualLeave(Number(e.target.value))}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setAnnualLeave(Number(e.target.value))
+              }
             />
           </div>
           <div className="mb-2">
@@ -135,7 +143,9 @@ const CalculationForm = () => {
               className="border border-gray-300 p-1 w-full"
               type="number"
               value={sickLeave}
-              onChange={(e) => setSickLeave(Number(e.target.value))}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setSickLeave(Number(e.target.value))
+              }
             />
           </div>
           <div className="w-full">
@@ -144,7 +154,9 @@ const CalculationForm = () => {
               className="border border-gray-300 p-2 w-full"
               type="text"
               value={netDaysWorked}
-              onChange={(e) => handleNetworkDateChange(e)}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                handleNetworkDateChange(e)
+              }
             />
           </div>
         </div>

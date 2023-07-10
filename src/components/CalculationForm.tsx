@@ -3,9 +3,9 @@
 import { useState, useEffect, ChangeEvent } from "react";
 
 const CalculationForm = () => {
-  const [standardSalary, setStandardSalary] = useState(70000);
-  const [packageSalary, setPackageSalary] = useState(76650);
-  const [contractRate, setContractRate] = useState(337.67);
+  const [standardSalary, setStandardSalary] = useState(150000);
+  const [packageSalary, setPackageSalary] = useState(164250);
+  const [contractRate, setContractRate] = useState(726);
   const [daysWorked, setDaysWorked] = useState(5);
   const [weekdaysYear, setWeekdaysYear] = useState(261);
   const [publicHolidays, setPublicHolidays] = useState(10);
